@@ -1,6 +1,6 @@
 <?php
 	function Start(){
-		$html='<linkn rel="stylesheet" href="style.css">';  //foglio di stile
+		$html='<link rel="stylesheet" href="style.css">';  //foglio di stile
 		$html.='<form action="weather.php">';   //pagina da eseguire
 		$html.='<div class="wrap">';
 		$html.='<div class="search">';
@@ -12,13 +12,16 @@
 		return $html;
 	}
 	function EseguiPy(){
-		escapeshellcmd('../python/main.py "'.$_REQUEST["city"].'"');    //script python
-		sleep(2)
+		$command=escapeshellcmd('python main.py "'.$_REQUEST["city"].'"');    //script python
+		shell_exec($command);
+		//sleep(1)
 	}
 
 	$html=Start();
 	if(isset($_REQUEST["city"])){
 		EseguiPy();
-		$html.='<iframe src="../images/out.html"></iframe>';     //lettura immagine
+		$html.='<iframe src="out.html"></iframe>';	//../images/out.html non va
+		//$html.='<img src="out.png">';
 	}
+	$html.='<div class="footer">gfehrtyjfyuigtku6lyfgu</div>';
 	echo $html;
