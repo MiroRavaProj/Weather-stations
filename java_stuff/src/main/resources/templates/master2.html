@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}" rel="stylesheet">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="HTML pratica">
+  <meta name="author" content="Group 1">
+  <title>Master</title>
+  <style th:fragment="style">
+    a:visited {color: purple;}
+    a:hover {color: red;}
+    a:active {color: yellow;}
+
+
+
+  </style>
+</head>
+<body>
+<header th:fragment="header">
+  <p style="text-align:center;"><img width="500" th:src="@{/weather_info.png}"
+                                     alt="weather's logo" class="img-fluid"/></p>
+</header>
+<nav th:fragment="nav">
+  <h1>Navigation</h1>
+  <div class="container">
+    <ul>
+      <a th:href="@{/weather}">Home</a>
+      <a th:href="@{/weatherGlobalMap}">Global Map</a>
+      <a th:href="@{/weatherTrendLine}">Trend Line</a>
+      <a th:href="@{/weatherLocationMap}">Location Map</a>
+    </ul>
+  </div>
+</nav>
+<main>
+  <aside th:fragment="aside">
+  </aside>
+</main>
+<footer th:fragment="footer">
+  <h3>Copyleft CC-by 2023 by Group 1</h3>
+</footer>
+</body>
+</html>
